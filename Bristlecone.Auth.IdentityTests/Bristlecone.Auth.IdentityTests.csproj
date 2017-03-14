@@ -141,11 +141,11 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="IDXRoleManagerTests.cs" />
-    <Compile Include="IDXUserManagerTests.cs" />
-    <Compile Include="IDXUserStoreTests.cs" />
-    <Compile Include="IDXAuthDbContextTests.cs" />
-    <Compile Include="IDXUserTests.cs" />
+    <Compile Include="BristleconeRoleManagerTests.cs" />
+    <Compile Include="BristleconeUserManagerTests.cs" />
+    <Compile Include="BristleconeUserStoreTests.cs" />
+    <Compile Include="BristleconeAuthDbContextTests.cs" />
+    <Compile Include="BristleconeUserTests.cs" />
     <Compile Include="MockAuthContext.cs" />
     <Compile Include="MockBaseDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
