@@ -147,6 +147,7 @@
     <Compile Include="IDXAuthDbContextTests.cs" />
     <Compile Include="IDXUserTests.cs" />
     <Compile Include="MockAuthContext.cs" />
+    <Compile Include="MockBaseDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -154,7 +155,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IDX.Auth.Identity\Bristlecone.Auth.Identity.csproj">
+    <ProjectReference Include="..\Bristlecone.Auth.Identity\Bristlecone.Auth.Identity.csproj">
       <Project>{b8bb6555-2e5b-4e1d-9c55-ad272e2f405a}</Project>
       <Name>Bristlecone.Auth.Identity</Name>
     </ProjectReference>
