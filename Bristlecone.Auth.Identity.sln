@@ -7,20 +7,65 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bristlecone.Auth.Identity",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bristlecone.Auth.IdentityTests", "Bristlecone.Auth.IdentityTests\Bristlecone.Auth.IdentityTests.csproj", "{E6CA2447-299B-4676-99CE-AA6B7134D256}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bristlecone.Auth", "Bristlecone.Auth\Bristlecone.Auth.csproj", "{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A} = {B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bristlecone.AuthTests", "Bristlecone.AuthTests\Bristlecone.AuthTests.csproj", "{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A} = {B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		DevStack1|Any CPU = DevStack1|Any CPU
+		Production|Any CPU = Production|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Stage|Any CPU = Stage|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.DevStack1|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.DevStack1|Any CPU.Build.0 = Debug|Any CPU
+		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.Production|Any CPU.ActiveCfg = Release|Any CPU
+		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.Production|Any CPU.Build.0 = Release|Any CPU
 		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}.Stage|Any CPU.Build.0 = Release|Any CPU
 		{E6CA2447-299B-4676-99CE-AA6B7134D256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E6CA2447-299B-4676-99CE-AA6B7134D256}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6CA2447-299B-4676-99CE-AA6B7134D256}.DevStack1|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6CA2447-299B-4676-99CE-AA6B7134D256}.DevStack1|Any CPU.Build.0 = Debug|Any CPU
+		{E6CA2447-299B-4676-99CE-AA6B7134D256}.Production|Any CPU.ActiveCfg = Release|Any CPU
+		{E6CA2447-299B-4676-99CE-AA6B7134D256}.Production|Any CPU.Build.0 = Release|Any CPU
 		{E6CA2447-299B-4676-99CE-AA6B7134D256}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6CA2447-299B-4676-99CE-AA6B7134D256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6CA2447-299B-4676-99CE-AA6B7134D256}.Stage|Any CPU.ActiveCfg = Release|Any CPU
+		{E6CA2447-299B-4676-99CE-AA6B7134D256}.Stage|Any CPU.Build.0 = Release|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.DevStack1|Any CPU.ActiveCfg = DevStack1|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.DevStack1|Any CPU.Build.0 = DevStack1|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.Production|Any CPU.Build.0 = Production|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.Stage|Any CPU.ActiveCfg = Stage|Any CPU
+		{043BF2EE-EACD-4A44-95DF-A5F46CDB1BEE}.Stage|Any CPU.Build.0 = Stage|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.DevStack1|Any CPU.ActiveCfg = DevStack1|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.DevStack1|Any CPU.Build.0 = DevStack1|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.Production|Any CPU.ActiveCfg = Production|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.Production|Any CPU.Build.0 = Production|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.Stage|Any CPU.ActiveCfg = Stage|Any CPU
+		{B51EBE97-38D6-4A5A-ADDA-E8012B19276E}.Stage|Any CPU.Build.0 = Stage|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
