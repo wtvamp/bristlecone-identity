@@ -12,7 +12,7 @@ namespace Bristlecone.Auth.Identity
         /// Creates new instance of IDExperts Role Store for storing IDExperts roles
         /// </summary>
         /// <param name="ctx"></param>
-        public BristleconeRoleStore(ApplicationDbContext ctx) : base(ctx)
+        public BristleconeRoleStore(BristleconeAuthDbContext ctx) : base(ctx)
         {
 
         }

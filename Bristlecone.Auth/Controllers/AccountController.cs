@@ -327,7 +327,7 @@ namespace Bristlecone.Auth.Controllers
         }
 
         // POST api/Account/Register
-       // [AllowAnonymous]
+        [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {

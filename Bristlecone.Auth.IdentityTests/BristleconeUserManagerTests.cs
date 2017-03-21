@@ -13,7 +13,7 @@ namespace Bristlecone.Auth.IdentityTests
     [TestFixture]
     public class BristleconeUserManagerTests
     {
-        private Mock<ApplicationDbContext> _authContext;
+        private Mock<BristleconeAuthDbContext> _authContext;
 
         [SetUp]
         public void Init()
@@ -27,7 +27,7 @@ namespace Bristlecone.Auth.IdentityTests
         {
             // GIVEN a mocked IOwinContext and new BristleconeUserStore/BristleconeUserManager
             var _mockAppBuilder = new Mock<IOwinContext>();
-            _mockAppBuilder.Setup(f => f.Get<ApplicationDbContext>(It.IsAny<string>())).Returns(_authContext.Object);
+            _mockAppBuilder.Setup(f => f.Get<BristleconeAuthDbContext>(It.IsAny<string>())).Returns(_authContext.Object);
 
             var store = new BristleconeUserStore(_authContext.Object);
             var userManager = new BristleconeUserManager(store);

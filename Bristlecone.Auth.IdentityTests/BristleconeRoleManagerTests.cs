@@ -9,7 +9,7 @@ namespace Bristlecone.Auth.IdentityTests
     [TestFixture]
     public class BristleconeRoleManagerTests
     {
-        private Mock<ApplicationDbContext> _authContext;
+        private Mock<BristleconeAuthDbContext> _authContext;
         private Mock<BristleconeRoleStore> _BristleconeRoleStore;
 
         [SetUp]

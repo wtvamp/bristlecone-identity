@@ -12,9 +12,9 @@ namespace Bristlecone.Auth.IdentityTests
     [ExcludeFromCodeCoverage]
     public class MockAuthContext : MockBaseDbContext
     {
-        public Mock<ApplicationDbContext> GetMockAuthContext()
+        public Mock<BristleconeAuthDbContext> GetMockAuthContext()
         {
-            var authContext = new Mock<ApplicationDbContext>();
+            var authContext = new Mock<BristleconeAuthDbContext>();
 
             var mockBristleconeUserSet = MockDbSet(new List<ApplicationUser>());
             authContext.Setup(m => m.Users).Returns(mockBristleconeUserSet.Object);

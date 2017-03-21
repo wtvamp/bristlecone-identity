@@ -13,13 +13,13 @@ namespace Bristlecone.Auth.Identity
     /// </summary>
     public class BristleconeUserStore: UserStore<BristleconeUser>
     {
-        private ApplicationDbContext _authContext;
+        private BristleconeAuthDbContext _authContext;
 
         /// <summary>
         /// Bristlecone User store with no connected DB tables
         /// </summary>
         /// <param name="authContext">User DbContext</param>
-        public BristleconeUserStore(ApplicationDbContext authContext) : base(authContext)
+        public BristleconeUserStore(BristleconeAuthDbContext authContext) : base(authContext)
         {
             _authContext = authContext;
         }

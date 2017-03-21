@@ -37,7 +37,7 @@ namespace Bristlecone.Auth.Identity
         /// <returns>BristleconeUserManager for managing ID Experts with no associated IDS Entities</returns>
         public static BristleconeUserManager Create(IdentityFactoryOptions<BristleconeUserManager> options, IOwinContext context)
         {
-            var manager = new BristleconeUserManager(new BristleconeUserStore(context.Get<ApplicationDbContext>()));
+            var manager = new BristleconeUserManager(new BristleconeUserStore(context.Get<BristleconeAuthDbContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<BristleconeUser>(manager)
             {

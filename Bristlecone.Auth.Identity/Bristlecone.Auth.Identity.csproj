@@ -7,8 +7,8 @@
     <ProjectGuid>{B8BB6555-2E5B-4E1D-9C55-AD272E2F405A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IDX.Auth.Identity</RootNamespace>
-    <AssemblyName>IDX.Auth.Identity</AssemblyName>
+    <RootNamespace>Bristlecone.Auth.Identity</RootNamespace>
+    <AssemblyName>Bristlecone.Auth.Identity</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

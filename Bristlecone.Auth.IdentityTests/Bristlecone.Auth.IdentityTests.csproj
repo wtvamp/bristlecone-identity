@@ -6,8 +6,8 @@
     <ProjectGuid>{E6CA2447-299B-4676-99CE-AA6B7134D256}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IDX.Auth.IdentityTests</RootNamespace>
-    <AssemblyName>IDX.Auth.IdentityTests</AssemblyName>
+    <RootNamespace>Bristlecone.Auth.IdentityTests</RootNamespace>
+    <AssemblyName>Bristlecone.Auth.IdentityTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>

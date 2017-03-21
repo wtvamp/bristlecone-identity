@@ -14,7 +14,7 @@ namespace Bristlecone.Auth.IdentityTests
     [TestFixture]
     public class BristleconeUserTests
     {
-        private Mock<ApplicationDbContext> _authContext;
+        private Mock<BristleconeAuthDbContext> _authContext;
 
         [SetUp]
         public void Init()
