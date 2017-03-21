@@ -54,7 +54,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DataSecurity, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bristlecone.HoradricCube.1.0.6288.30667\lib\net45\DataSecurity.dll</HintPath>
+      <HintPath>..\packages\Bristlecone.HoradricCube.1.0.6289.22424\lib\net45\DataSecurity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DbUp, Version=3.3.5.0, Culture=neutral, PublicKeyToken=4b419c53bdfd4cbf, processorArchitecture=MSIL">
@@ -69,9 +69,9 @@
       <HintPath>..\packages\Hangfire.SqlServer.1.6.8\lib\net45\Hangfire.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HoradricCube, Version=1.0.6289.15931, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\bristleconefinancing\HoradricCube\bin\Debug\HoradricCube.dll</HintPath>
+    <Reference Include="HoradricCube, Version=1.0.6289.22424, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bristlecone.HoradricCube.1.0.6289.22424\lib\net45\HoradricCube.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>

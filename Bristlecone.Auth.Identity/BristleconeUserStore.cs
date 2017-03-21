@@ -87,7 +87,7 @@ namespace Bristlecone.Auth.Identity
             else
             {
                 _authContext.Users.Attach(user);
-                //_authContext.SetState(user, EntityState.Modified);
+                _authContext.SetState(user, EntityState.Modified);
                 _authContext.SaveChanges();
                 return Task.Delay(0);
             }
