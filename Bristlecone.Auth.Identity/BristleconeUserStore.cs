@@ -11,7 +11,7 @@ namespace Bristlecone.Auth.Identity
     /// <summary>
     /// Creates a new Bristlecone Participant user store
     /// </summary>
-    public class BristleconeUserStore: UserStore<BristleconeUser>
+    public class ApplicationUserStore: UserStore<ApplicationUser>
     {
         private BristleconeAuthDbContext _authContext;
 
@@ -19,7 +19,7 @@ namespace Bristlecone.Auth.Identity
         /// Bristlecone User store with no connected DB tables
         /// </summary>
         /// <param name="authContext">User DbContext</param>
-        public BristleconeUserStore(BristleconeAuthDbContext authContext) : base(authContext)
+        public ApplicationUserStore(BristleconeAuthDbContext authContext) : base(authContext)
         {
             _authContext = authContext;
         }
@@ -30,14 +30,14 @@ namespace Bristlecone.Auth.Identity
         /// </summary>
         /// <param name="user"></param>
         [ExcludeFromCodeCoverage]
-        public override Task CreateAsync(BristleconeUser user) => CreateAsync(user, true);
+        public override Task CreateAsync(ApplicationUser user) => CreateAsync(user, true);
 
         /// <summary>
         /// Excluded because base of Identity objects are not mockable
         /// </summary>
         /// <param name="user"></param>
         [ExcludeFromCodeCoverage]
-        public virtual Task BaseCreateAsync(BristleconeUser user) => base.CreateAsync(user);
+        public virtual Task BaseCreateAsync(ApplicationUser user) => base.CreateAsync(user);
 
         /// <summary>
         /// Creates a new user and a corresponding Participent record
@@ -45,7 +45,7 @@ namespace Bristlecone.Auth.Identity
         /// <param name="user"></param>
         /// <param name="callBase"></param>
         /// <returns></returns>
-        public Task CreateAsync(BristleconeUser user, bool callBase) { 
+        public Task CreateAsync(ApplicationUser user, bool callBase) { 
             if (callBase)
             {
                 return BaseCreateAsync(user);
@@ -63,14 +63,14 @@ namespace Bristlecone.Auth.Identity
         /// </summary>
         /// <param name="user"></param>
         [ExcludeFromCodeCoverage]
-        public override Task UpdateAsync(BristleconeUser user) => UpdateAsync(user, true);
+        public override Task UpdateAsync(ApplicationUser user) => UpdateAsync(user, true);
 
         /// <summary>
         /// Excluded because base of Identity objects are not mockable
         /// </summary>
         /// <param name="user"></param>
         [ExcludeFromCodeCoverage]
-        public virtual Task BaseUpdateAsync(BristleconeUser user) => base.UpdateAsync(user);
+        public virtual Task BaseUpdateAsync(ApplicationUser user) => base.UpdateAsync(user);
 
         /// <summary>
         /// Updates an Bristlecone User
@@ -78,7 +78,7 @@ namespace Bristlecone.Auth.Identity
         /// <param name="user"></param>
         /// <param name="callBase"></param>
         /// <returns></returns>
-        public Task UpdateAsync(BristleconeUser user, bool callBase)
+        public Task UpdateAsync(ApplicationUser user, bool callBase)
         {
             if (callBase)
             {
@@ -98,7 +98,7 @@ namespace Bristlecone.Auth.Identity
         /// </summary>
         /// <param name="user"></param>
         [ExcludeFromCodeCoverage]
-        public override Task DeleteAsync(BristleconeUser user) => DeleteAsync(user, true);
+        public override Task DeleteAsync(ApplicationUser user) => DeleteAsync(user, true);
 
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Bristlecone.Auth.Identity
         /// </summary>
         /// <param name="user"></param>
         [ExcludeFromCodeCoverage]
-        public virtual Task BaseDeleteAsync(BristleconeUser user) => base.DeleteAsync(user);
+        public virtual Task BaseDeleteAsync(ApplicationUser user) => base.DeleteAsync(user);
 
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace Bristlecone.Auth.Identity
         /// <param name="user" type="ParticipantUser">The user to be deleted</param>
         /// <param name="callBase"></param>
         /// <returns></returns>
-        public Task DeleteAsync(BristleconeUser user, bool callBase)
+        public Task DeleteAsync(ApplicationUser user, bool callBase)
         {
             if (callBase)
             {
@@ -134,7 +134,7 @@ namespace Bristlecone.Auth.Identity
         /// </summary>
         /// <param name="userId"></param>
         [ExcludeFromCodeCoverage]
-        public override async Task<BristleconeUser> FindByIdAsync(string userId) => await FindByIdAsync(userId, true);
+        public override async Task<ApplicationUser> FindByIdAsync(string userId) => await FindByIdAsync(userId, true);
 
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace Bristlecone.Auth.Identity
         /// </summary>
         /// <param name="userId"></param>
         [ExcludeFromCodeCoverage]
-        public virtual Task<BristleconeUser> BaseFindByIdAsync(string userId) => base.FindByIdAsync(userId);
+        public virtual Task<ApplicationUser> BaseFindByIdAsync(string userId) => base.FindByIdAsync(userId);
 
 
         /// <summary>
@@ -151,7 +151,7 @@ namespace Bristlecone.Auth.Identity
         /// <param name="userId"></param>
         /// <param name="callBase"></param>
         /// <returns></returns>
-        public async Task<BristleconeUser> FindByIdAsync(string userId, bool callBase)
+        public async Task<ApplicationUser> FindByIdAsync(string userId, bool callBase)
         {
             ApplicationUser user;
             if (callBase)
@@ -162,7 +162,7 @@ namespace Bristlecone.Auth.Identity
             {
                 user = _authContext.Users.FirstOrDefault(e => e.Id == userId);
             }
-            return (BristleconeUser)user;
+            return (ApplicationUser)user;
         }
 
         /// <summary>
@@ -170,14 +170,14 @@ namespace Bristlecone.Auth.Identity
         /// </summary>
         /// <param name="userName"></param>
         [ExcludeFromCodeCoverage]
-        public override async Task<BristleconeUser> FindByNameAsync(string userName) => await FindByNameAsync(userName, true);
+        public override async Task<ApplicationUser> FindByNameAsync(string userName) => await FindByNameAsync(userName, true);
 
         /// <summary>
         /// Excluded because base of Identity objects are not mockable
         /// </summary>
         /// <param name="userName"></param>
         [ExcludeFromCodeCoverage]
-        public virtual Task<BristleconeUser> BaseFindByNameAsync(string userName) => base.FindByNameAsync(userName);
+        public virtual Task<ApplicationUser> BaseFindByNameAsync(string userName) => base.FindByNameAsync(userName);
 
         /// <summary>
         /// Find an Bristlecone User by username search
@@ -185,7 +185,7 @@ namespace Bristlecone.Auth.Identity
         /// <param name="userName"></param>
         /// <param name="callBase"></param>
         /// <returns></returns>
-        public async Task<BristleconeUser> FindByNameAsync(string userName, bool callBase)
+        public async Task<ApplicationUser> FindByNameAsync(string userName, bool callBase)
         {
             ApplicationUser user;
             if (callBase)
@@ -196,7 +196,7 @@ namespace Bristlecone.Auth.Identity
             {
                 user = _authContext.Users.FirstOrDefault(e => e.UserName == userName);
             }
-            return (BristleconeUser)user;
+            return (ApplicationUser)user;
         }
     }
 }

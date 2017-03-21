@@ -80,9 +80,8 @@
       <HintPath>..\packages\Hangfire.SqlServer.1.6.8\lib\net45\Hangfire.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="HoradricCube, Version=1.0.6288.30667, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bristlecone.HoradricCube.1.0.6288.30667\lib\net45\HoradricCube.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="HoradricCube">
+      <HintPath>..\..\bristleconefinancing\HoradricCube\bin\Debug\HoradricCube.dll</HintPath>
     </Reference>
     <Reference Include="IDX.DataLayer, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\IDX.DataLayer.2.0.0-beta-001\lib\net452\IDX.DataLayer.dll</HintPath>

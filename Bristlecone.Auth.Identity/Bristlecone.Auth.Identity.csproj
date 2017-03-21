@@ -68,8 +68,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="HoradricCube, Version=1.0.6288.30667, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bristlecone.HoradricCube.1.0.6288.30667\lib\net45\HoradricCube.dll</HintPath>
-      <Private>True</Private>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\bristleconefinancing\HoradricCube\bin\Debug\HoradricCube.dll</HintPath>
     </Reference>
     <Reference Include="log4net, Version=2.0.7.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.7\lib\net45-full\log4net.dll</HintPath>
@@ -144,7 +144,6 @@
     <Compile Include="BristleconeRoleManager.cs" />
     <Compile Include="BristleconeRoleStore.cs" />
     <Compile Include="BristleconeSignInManager.cs" />
-    <Compile Include="BristleconeUser.cs" />
     <Compile Include="BristleconeUserManager.cs" />
     <Compile Include="BristleconeUserStore.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

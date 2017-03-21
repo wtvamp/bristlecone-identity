@@ -16,10 +16,10 @@ namespace Bristlecone.Auth.IdentityTests
         {
             var authContext = new Mock<BristleconeAuthDbContext>();
 
-            var mockBristleconeUserSet = MockDbSet(new List<ApplicationUser>());
-            authContext.Setup(m => m.Users).Returns(mockBristleconeUserSet.Object);
-            //authContext.Setup(m => m.GetState(It.IsAny<BristleconeUser>()));
-            //authContext.Setup(m => m.SetState(It.IsAny<BristleconeUser>(), It.IsAny<EntityState>()));
+            var mockApplicationUserSet = MockDbSet(new List<ApplicationUser>());
+            authContext.Setup(m => m.Users).Returns(mockApplicationUserSet.Object);
+            //authContext.Setup(m => m.GetState(It.IsAny<ApplicationUser>()));
+            //authContext.Setup(m => m.SetState(It.IsAny<ApplicationUser>(), It.IsAny<EntityState>()));
             return authContext;
         }
     }
