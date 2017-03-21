@@ -2,13 +2,14 @@
 using Bristlecone.Auth.Identity;
 using FluentAssertions;
 using Moq;
+using HoradricCube.DbContexts;
 
 namespace Bristlecone.Auth.IdentityTests
 {
     [TestFixture]
     public class BristleconeRoleManagerTests
     {
-        private Mock<BristleconeAuthDbContext> _authContext;
+        private Mock<ApplicationDbContext> _authContext;
         private Mock<BristleconeRoleStore> _BristleconeRoleStore;
 
         [SetUp]

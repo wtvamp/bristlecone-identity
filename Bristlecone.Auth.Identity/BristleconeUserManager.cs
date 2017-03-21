@@ -2,6 +2,7 @@
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
+using HoradricCube.DbContexts;
 
 namespace Bristlecone.Auth.Identity
 {
@@ -36,7 +37,7 @@ namespace Bristlecone.Auth.Identity
         /// <returns>BristleconeUserManager for managing ID Experts with no associated IDS Entities</returns>
         public static BristleconeUserManager Create(IdentityFactoryOptions<BristleconeUserManager> options, IOwinContext context)
         {
-            var manager = new BristleconeUserManager(new BristleconeUserStore(context.Get<BristleconeAuthDbContext>()));
+            var manager = new BristleconeUserManager(new BristleconeUserStore(context.Get<ApplicationDbContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<BristleconeUser>(manager)
             {

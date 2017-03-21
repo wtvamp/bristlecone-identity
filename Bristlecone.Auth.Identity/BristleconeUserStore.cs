@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using HoradricCube.DbContexts;
+using HoradricCube.Entities.Base;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
@@ -11,13 +13,13 @@ namespace Bristlecone.Auth.Identity
     /// </summary>
     public class BristleconeUserStore: UserStore<BristleconeUser>
     {
-        private BristleconeAuthDbContext _authContext;
+        private ApplicationDbContext _authContext;
 
         /// <summary>
         /// Bristlecone User store with no connected DB tables
         /// </summary>
         /// <param name="authContext">User DbContext</param>
-        public BristleconeUserStore(BristleconeAuthDbContext authContext) : base(authContext)
+        public BristleconeUserStore(ApplicationDbContext authContext) : base(authContext)
         {
             _authContext = authContext;
         }
@@ -85,7 +87,7 @@ namespace Bristlecone.Auth.Identity
             else
             {
                 _authContext.Users.Attach(user);
-                _authContext.SetState(user, EntityState.Modified);
+                //_authContext.SetState(user, EntityState.Modified);
                 _authContext.SaveChanges();
                 return Task.Delay(0);
             }
@@ -151,7 +153,7 @@ namespace Bristlecone.Auth.Identity
         /// <returns></returns>
         public async Task<BristleconeUser> FindByIdAsync(string userId, bool callBase)
         {
-            BristleconeUser user;
+            ApplicationUser user;
             if (callBase)
             {
                 user = await BaseFindByIdAsync(userId);
@@ -160,7 +162,7 @@ namespace Bristlecone.Auth.Identity
             {
                 user = _authContext.Users.FirstOrDefault(e => e.Id == userId);
             }
-            return user;
+            return (BristleconeUser)user;
         }
 
         /// <summary>
@@ -185,7 +187,7 @@ namespace Bristlecone.Auth.Identity
         /// <returns></returns>
         public async Task<BristleconeUser> FindByNameAsync(string userName, bool callBase)
         {
-            BristleconeUser user;
+            ApplicationUser user;
             if (callBase)
             {
                 user = await BaseFindByNameAsync(userName);
@@ -194,7 +196,7 @@ namespace Bristlecone.Auth.Identity
             {
                 user = _authContext.Users.FirstOrDefault(e => e.UserName == userName);
             }
-            return user;
+            return (BristleconeUser)user;
         }
     }
 }

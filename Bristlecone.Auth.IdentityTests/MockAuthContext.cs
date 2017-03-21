@@ -1,5 +1,7 @@
 ﻿using Bristlecone.Auth.Identity;
 using Bristlecone.Test;
+using HoradricCube.DbContexts;
+using HoradricCube.Entities.Base;
 using Moq;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,14 +12,14 @@ namespace Bristlecone.Auth.IdentityTests
     [ExcludeFromCodeCoverage]
     public class MockAuthContext : MockBaseDbContext
     {
-        public Mock<BristleconeAuthDbContext> GetMockAuthContext()
+        public Mock<ApplicationDbContext> GetMockAuthContext()
         {
-            var authContext = new Mock<BristleconeAuthDbContext>();
+            var authContext = new Mock<ApplicationDbContext>();
 
-            var mockBristleconeUserSet = MockDbSet(new List<BristleconeUser>());
+            var mockBristleconeUserSet = MockDbSet(new List<ApplicationUser>());
             authContext.Setup(m => m.Users).Returns(mockBristleconeUserSet.Object);
-            authContext.Setup(m => m.GetState(It.IsAny<BristleconeUser>()));
-            authContext.Setup(m => m.SetState(It.IsAny<BristleconeUser>(), It.IsAny<EntityState>()));
+            //authContext.Setup(m => m.GetState(It.IsAny<BristleconeUser>()));
+            //authContext.Setup(m => m.SetState(It.IsAny<BristleconeUser>(), It.IsAny<EntityState>()));
             return authContext;
         }
     }

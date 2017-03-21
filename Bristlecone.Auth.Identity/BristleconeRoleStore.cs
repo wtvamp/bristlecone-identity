@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using HoradricCube.DbContexts;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Bristlecone.Auth.Identity
 {
@@ -11,7 +12,7 @@ namespace Bristlecone.Auth.Identity
         /// Creates new instance of IDExperts Role Store for storing IDExperts roles
         /// </summary>
         /// <param name="ctx"></param>
-        public BristleconeRoleStore(BristleconeAuthDbContext ctx) : base(ctx)
+        public BristleconeRoleStore(ApplicationDbContext ctx) : base(ctx)
         {
 
         }

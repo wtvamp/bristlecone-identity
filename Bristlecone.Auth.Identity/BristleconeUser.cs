@@ -2,13 +2,14 @@
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using HoradricCube.Entities.Base;
 
 namespace Bristlecone.Auth.Identity
 {
     /// <summary>
     /// Generic Bristlecone User with no associated entities from the IDS Database
     /// </summary>
-    public class BristleconeUser : IdentityUser
+    public class BristleconeUser : ApplicationUser
     {
         /// <summary>
         /// Creates new ClaimsIdentity for a Generic Bristlecone User with no associated entities from the IDS Database

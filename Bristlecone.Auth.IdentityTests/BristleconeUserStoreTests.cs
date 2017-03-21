@@ -3,13 +3,14 @@ using FluentAssertions;
 using Bristlecone.Auth.Identity;
 using Moq;
 using NUnit.Framework;
+using HoradricCube.DbContexts;
 
 namespace Bristlecone.Auth.IdentityTests
 {
     [TestFixture]
     public class BristleconeUserStoreTests
     {
-        private Mock<BristleconeAuthDbContext> _authContext;
+        private Mock<ApplicationDbContext> _authContext;
 
         [SetUp]
         public void Init()
