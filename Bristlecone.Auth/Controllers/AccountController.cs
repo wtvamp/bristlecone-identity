@@ -17,6 +17,7 @@ using Bristlecone.Auth.Models;
 using Bristlecone.Auth.Providers;
 using Bristlecone.Auth.Results;
 using Bristlecone.Auth.Identity;
+using HoradricCube.Entities.Base;
 
 namespace Bristlecone.Auth.Controllers
 {
@@ -26,7 +27,7 @@ namespace Bristlecone.Auth.Controllers
     public class AccountController : ApiController
     {
         private const string LocalLoginProvider = "Local";
-        private BristleconeUserManager _userManager;
+        private ApplicationUserManager _userManager;
 
         public AccountController()
         {
@@ -37,18 +38,18 @@ namespace Bristlecone.Auth.Controllers
             this.Request = httpRequest;
         }
 
-        public AccountController(BristleconeUserManager userManager,
+        public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
         }
 
-        public BristleconeUserManager UserManager
+        public ApplicationUserManager UserManager
         {
             get
             {
-                return _userManager ?? Request.GetOwinContext().GetUserManager<BristleconeUserManager>();
+                return _userManager ?? Request.GetOwinContext().GetUserManager<ApplicationUserManager>();
             }
             private set
             {
@@ -258,7 +259,7 @@ namespace Bristlecone.Auth.Controllers
                 return new ChallengeResult(provider, this);
             }
 
-            BristleconeUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
+            ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
                 externalLogin.ProviderKey));
 
             bool hasRegistered = user != null;
@@ -327,7 +328,7 @@ namespace Bristlecone.Auth.Controllers
         }
 
         // POST api/Account/Register
-       // [AllowAnonymous]
+        [AllowAnonymous]
         [Route("Register")]
         public async Task<IHttpActionResult> Register(RegisterBindingModel model)
         {
@@ -336,7 +337,7 @@ namespace Bristlecone.Auth.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new BristleconeUser() { UserName = model.Email, Email = model.Email };
+            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -369,7 +370,7 @@ namespace Bristlecone.Auth.Controllers
             IdentityResult result;
             if (user == null)
             {
-                user = new BristleconeUser()
+                user = new ApplicationUser()
                 {
                     UserName = model.Email,
                     Email = model.Email

@@ -5,6 +5,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using HoradricCube.Entities.Base;
 
 namespace Bristlecone.Auth.Identity
 {
@@ -14,14 +15,14 @@ namespace Bristlecone.Auth.Identity
     /// Excluded from coverage because it's not used anywhere in Bristlecone Custom Code 
     /// I suspect it is just a requirement for the OWIN middleware
     [ExcludeFromCodeCoverage]
-    public class BristleconeSignInManager : SignInManager<BristleconeUser, string>
+    public class BristleconeSignInManager : SignInManager<ApplicationUser, string>
     {
         /// <summary>
         /// Creates new instance of Bristlecone Sign In Manager for generating users
         /// </summary>
         /// <param name="userManager"></param>
         /// <param name="authenticationManager"></param>
-        public BristleconeSignInManager(BristleconeUserManager userManager, IAuthenticationManager authenticationManager)
+        public BristleconeSignInManager(ApplicationUserManager userManager, IAuthenticationManager authenticationManager)
             : base(userManager, authenticationManager)
         {
         }
@@ -31,9 +32,9 @@ namespace Bristlecone.Auth.Identity
         /// </summary>
         /// <param name="user"></param>
         /// <returns></returns>
-        public override Task<ClaimsIdentity> CreateUserIdentityAsync(BristleconeUser user)
+        public override Task<ClaimsIdentity> CreateUserIdentityAsync(ApplicationUser user)
         {
-            return user.GenerateUserIdentityAsync((BristleconeUserManager)UserManager, DefaultAuthenticationTypes.ApplicationCookie);
+            return user.GenerateUserIdentityAsync((ApplicationUserManager)UserManager, DefaultAuthenticationTypes.ApplicationCookie);
         }
 
         /// <summary>
@@ -44,7 +45,7 @@ namespace Bristlecone.Auth.Identity
         /// <returns></returns>
         public static BristleconeSignInManager Create(IdentityFactoryOptions<BristleconeSignInManager> options, IOwinContext context)
         {
-            return new BristleconeSignInManager(context.GetUserManager<BristleconeUserManager>(), context.Authentication);
+            return new BristleconeSignInManager(context.GetUserManager<ApplicationUserManager>(), context.Authentication);
         }
     }
 }

@@ -3,11 +3,13 @@ using FluentAssertions;
 using Bristlecone.Auth.Identity;
 using Moq;
 using NUnit.Framework;
+using HoradricCube.DbContexts;
+using HoradricCube.Entities.Base;
 
 namespace Bristlecone.Auth.IdentityTests
 {
     [TestFixture]
-    public class BristleconeUserStoreTests
+    public class ApplicationUserStoreTests
     {
         private Mock<BristleconeAuthDbContext> _authContext;
 
@@ -19,12 +21,12 @@ namespace Bristlecone.Auth.IdentityTests
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserStore_when_a_user_is_created_then_it_can_be_retrieved_by_username()
+        public async Task Given_an_ApplicationUserStore_when_a_user_is_created_then_it_can_be_retrieved_by_username()
         {
             // GIVEN a user store and user
-            var userStore = new BristleconeUserStore(_authContext.Object);
+            var userStore = new ApplicationUserStore(_authContext.Object);
 
-            var user = new BristleconeUser
+            var user = new ApplicationUser
             {
                 UserName = "TestUser3",
                 Email = "TestUser3@test.com"                
@@ -36,16 +38,16 @@ namespace Bristlecone.Auth.IdentityTests
             // THEN the user should retrieved from the user store and match the original user
             var userFromStore = await userStore.FindByNameAsync(user.UserName, false);
 
-            userFromStore.UserName.Should().Be(user.UserName, "because the user has been created in and retrieved from the BristleconeUserStore.");
+            userFromStore.UserName.Should().Be(user.UserName, "because the user has been created in and retrieved from the ApplicationUserStore.");
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserStore_when_a_user_is_created_then_it_can_be_retrieved_by_userid()
+        public async Task Given_an_ApplicationUserStore_when_a_user_is_created_then_it_can_be_retrieved_by_userid()
         {
             // GIVEN a user store and user
-            var userStore = new BristleconeUserStore(_authContext.Object);
+            var userStore = new ApplicationUserStore(_authContext.Object);
 
-            var user = new BristleconeUser
+            var user = new ApplicationUser
             {
                 Id ="TestUser3",
                 UserName = "TestUser3",
@@ -58,19 +60,19 @@ namespace Bristlecone.Auth.IdentityTests
             // THEN the user should retrieved from the user store and match the original user
             var userFromStore = await userStore.FindByIdAsync(user.Id, false);
 
-            userFromStore.Id.Should().Be(user.Id, "because the user has been created in and retrieved from the BristleconeUserStore.");
+            userFromStore.Id.Should().Be(user.Id, "because the user has been created in and retrieved from the ApplicationUserStore.");
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserStore_when_a_user_is_found_by_username_then_it_calls_base()
+        public async Task Given_an_ApplicationUserStore_when_a_user_is_found_by_username_then_it_calls_base()
         {
             // GIVEN a user store and user
-            var userStore = new Mock<BristleconeUserStore>(_authContext.Object)
+            var userStore = new Mock<ApplicationUserStore>(_authContext.Object)
             {
                 CallBase = true
             };
 
-            var user = new BristleconeUser
+            var user = new ApplicationUser
             {
                 UserName = "TestUser3",
                 Email = "TestUser3@test.com"
@@ -86,15 +88,15 @@ namespace Bristlecone.Auth.IdentityTests
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserStore_when_a_user_is_found_by_userid_then_it_calls_base()
+        public async Task Given_an_ApplicationUserStore_when_a_user_is_found_by_userid_then_it_calls_base()
         {
             // GIVEN a user store and user
-            var userStore = new Mock<BristleconeUserStore>(_authContext.Object)
+            var userStore = new Mock<ApplicationUserStore>(_authContext.Object)
             {
                 CallBase = true
             };
 
-            var user = new BristleconeUser
+            var user = new ApplicationUser
             {
                 Id = "TestUser3",
                 UserName = "TestUser3",
@@ -111,15 +113,15 @@ namespace Bristlecone.Auth.IdentityTests
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserStore_when_a_user_is_updated_then_it_calls_base()
+        public async Task Given_an_ApplicationUserStore_when_a_user_is_updated_then_it_calls_base()
         {
             // GIVEN a user store and user
-            var userStore = new Mock<BristleconeUserStore>(_authContext.Object)
+            var userStore = new Mock<ApplicationUserStore>(_authContext.Object)
             {
                 CallBase = false
             };
             
-            var user = new BristleconeUser
+            var user = new ApplicationUser
             {
                 UserName = "TestUser3",
                 Email = "TestUser3@test.com"
@@ -135,15 +137,15 @@ namespace Bristlecone.Auth.IdentityTests
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserStore_when_a_user_is_deleted_then_it_calls_base()
+        public async Task Given_an_ApplicationUserStore_when_a_user_is_deleted_then_it_calls_base()
         {
             // GIVEN a user store and user
-            var userStore = new Mock<BristleconeUserStore>(_authContext.Object)
+            var userStore = new Mock<ApplicationUserStore>(_authContext.Object)
             {
                 CallBase = false
             };
 
-            var user = new BristleconeUser
+            var user = new ApplicationUser
             {
                 UserName = "TestUser3",
                 Email = "TestUser3@test.com"
@@ -159,15 +161,15 @@ namespace Bristlecone.Auth.IdentityTests
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserStore_when_a_user_is_created_then_it_calls_base()
+        public async Task Given_an_ApplicationUserStore_when_a_user_is_created_then_it_calls_base()
         {
             // GIVEN a user store and user
-            var userStore = new Mock<BristleconeUserStore>(_authContext.Object)
+            var userStore = new Mock<ApplicationUserStore>(_authContext.Object)
             {
                 CallBase = false
             };
 
-            var user = new BristleconeUser
+            var user = new ApplicationUser
             {
                 UserName = "TestUser3",
                 Email = "TestUser3@test.com"
@@ -183,11 +185,11 @@ namespace Bristlecone.Auth.IdentityTests
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserStore_when_a_user_is_updated_then_it_can_be_retrieved()
+        public async Task Given_an_ApplicationUserStore_when_a_user_is_updated_then_it_can_be_retrieved()
         {
-            // Given an BristleconeUserStore and BristleconeUser
-            var userStore = new BristleconeUserStore(_authContext.Object);
-            var user = new BristleconeUser
+            // Given an ApplicationUserStore and ApplicationUser
+            var userStore = new ApplicationUserStore(_authContext.Object);
+            var user = new ApplicationUser
             {
                 UserName = "TestUser5",
                 Email = "TestUser5@test.com"
