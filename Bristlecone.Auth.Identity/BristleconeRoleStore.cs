@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using HoradricCube.DbContexts;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Bristlecone.Auth.Identity
 {

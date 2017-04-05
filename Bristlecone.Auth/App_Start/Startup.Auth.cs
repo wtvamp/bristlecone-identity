@@ -32,7 +32,7 @@ namespace Bristlecone.Auth
         {
             // Configure the db context and user manager to use a single instance per request
             app.CreatePerOwinContext(BristleconeAuthDbContext.Create);
-            app.CreatePerOwinContext<BristleconeUserManager>(BristleconeUserManager.Create);
+            app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
         }
 
         [ExcludeFromCodeCoverage]

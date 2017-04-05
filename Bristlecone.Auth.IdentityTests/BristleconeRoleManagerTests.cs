@@ -2,6 +2,7 @@
 using Bristlecone.Auth.Identity;
 using FluentAssertions;
 using Moq;
+using HoradricCube.DbContexts;
 
 namespace Bristlecone.Auth.IdentityTests
 {

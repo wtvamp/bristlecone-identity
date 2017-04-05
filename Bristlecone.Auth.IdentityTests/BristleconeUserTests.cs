@@ -7,11 +7,13 @@ using Moq;
 using NUnit.Framework;
 using System.Threading.Tasks;
 using FluentAssertions;
+using HoradricCube.DbContexts;
+using HoradricCube.Entities.Base;
 
 namespace Bristlecone.Auth.IdentityTests
 {
     [TestFixture]
-    public class BristleconeUserTests
+    public class ApplicationUserTests
     {
         private Mock<BristleconeAuthDbContext> _authContext;
 
@@ -23,15 +25,15 @@ namespace Bristlecone.Auth.IdentityTests
         }
 
         [Test]
-        public async Task Given_an_BristleconeUserManager_when_asking_for_a_claimsidentity_then_claimsidentity_is_returned()
+        public async Task Given_an_ApplicationUserManager_when_asking_for_a_claimsidentity_then_claimsidentity_is_returned()
         {
-            // GIVEN an BristleconeUserManager, BristleconeUserStore, and BristleconeUser
-            var userStore = new Mock<BristleconeUserStore>(_authContext.Object);
-            var userManager = new Mock<BristleconeUserManager>(userStore.Object);
+            // GIVEN an ApplicationUserManager, ApplicationUserStore, and ApplicationUser
+            var userStore = new Mock<ApplicationUserStore>(_authContext.Object);
+            var userManager = new Mock<ApplicationUserManager>(userStore.Object);
 
-            userManager.Setup(m => m.CreateAsync(It.IsAny<BristleconeUser>())).ReturnsAsync(() => IdentityResult.Success);
-            userManager.Setup(m => m.DeleteAsync(It.IsAny<BristleconeUser>())).ReturnsAsync(() => IdentityResult.Success);
-            userManager.Setup(m => m.FindByIdAsync(It.IsAny<string>())).ReturnsAsync(new BristleconeUser()
+            userManager.Setup(m => m.CreateAsync(It.IsAny<ApplicationUser>())).ReturnsAsync(() => IdentityResult.Success);
+            userManager.Setup(m => m.DeleteAsync(It.IsAny<ApplicationUser>())).ReturnsAsync(() => IdentityResult.Success);
+            userManager.Setup(m => m.FindByIdAsync(It.IsAny<string>())).ReturnsAsync(new ApplicationUser()
             {
                 Id = "TestUser5",
                 UserName = "TestUser5",
@@ -45,10 +47,10 @@ namespace Bristlecone.Auth.IdentityTests
             };
             var claimsIdentity = new ClaimsIdentity(claims, DefaultAuthenticationTypes.ExternalBearer);
 
-            userManager.Setup(m => m.CreateIdentityAsync(It.IsAny<BristleconeUser>(), It.IsAny<string>()))
+            userManager.Setup(m => m.CreateIdentityAsync(It.IsAny<ApplicationUser>(), It.IsAny<string>()))
                 .ReturnsAsync(claimsIdentity);
 
-            var user = new BristleconeUser
+            var user = new ApplicationUser
             {
                 Id = "TestUser5",
                 UserName = "TestUser5",

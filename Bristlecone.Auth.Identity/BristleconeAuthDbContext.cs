@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.EntityFramework;
+﻿using HoradricCube.DbContexts;
+using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using System.Diagnostics.CodeAnalysis;
 
@@ -7,12 +8,12 @@ namespace Bristlecone.Auth.Identity
     /// <summary>
     /// Auth Context for DbEntities associated with IDExperts Auth Database
     /// </summary>
-    public class BristleconeAuthDbContext : IdentityDbContext<BristleconeUser>
+    public class BristleconeAuthDbContext : ApplicationDbContext
     {
         /// <summary>
         /// Create new Auth Context for DbEntities associated with IDExperts Auth Database
         /// </summary>
-        public BristleconeAuthDbContext() : base("BristleconeIdentity", throwIfV1Schema: false)
+        public BristleconeAuthDbContext() : base("BristleconeIdentity")
         {
         }
 

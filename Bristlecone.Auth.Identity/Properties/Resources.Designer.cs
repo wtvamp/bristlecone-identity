@@ -74,8 +74,8 @@ namespace Bristlecone.Auth.Identity.Properties {
         /// </summary>
         internal static string BristleconeParticipantUserStore_CreateAsync_A_participant_needs_to_be_added_to_the_account_ {
             get {
-                return ResourceManager.GetString("BristleconeParticipantUserStore_CreateAsync_A_participant_needs_to_be_added_to_the_accoun" +
-                        "t_", resourceCulture);
+                return ResourceManager.GetString("BristleconeParticipantUserStore_CreateAsync_A_participant_needs_to_be_added_to_th" +
+                        "e_account_", resourceCulture);
             }
         }
         
@@ -84,7 +84,8 @@ namespace Bristlecone.Auth.Identity.Properties {
         /// </summary>
         internal static string BristleconeParticipantUserStore_DeleteAsync_Participant_with_ID__0__already_deleted__1_ {
             get {
-                return ResourceManager.GetString("BristleconeParticipantUserStore_DeleteAsync_Participant_with_ID__0__already_deleted__1_", resourceCulture);
+                return ResourceManager.GetString("BristleconeParticipantUserStore_DeleteAsync_Participant_with_ID__0__already_delet" +
+                        "ed__1_", resourceCulture);
             }
         }
         
